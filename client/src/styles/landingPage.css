@@ -1,0 +1,164 @@
+.loader {
+    width: 48px;
+    height: 48px;
+    display: inline-block;
+    position: relative;
+  }
+  .loader::after,
+  .loader::before {
+    content: '';  
+    box-sizing: border-box;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 2px solid #FFF;
+    position: absolute;
+    left: 0;
+    top: 0;
+    animation: animloader 2s linear infinite;
+  }
+  .loader::after {
+    animation-delay: 1s;
+  }
+  
+  @keyframes animloader {
+    0% {
+      transform: scale(0);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 0;
+    }
+  }
+
+.containerLanding {
+ background: url('../images/arcane.jpg');
+  display: flex;
+  width:100vw;
+  justify-content: center;
+  align-items: center;
+  height:100vh; 
+  background-size: cover;
+  flex-direction: column;  
+  align-items: center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+}
+
+.h1 {
+  text-align: center;
+  margin-top: 1rem;
+  margin-left: 2.5rem;
+  background: linear-gradient(105deg, rgba(255,255,255,.2) 39%, rgba(51,56,57,1) 96%); 
+  border-radius: 15px;
+  color: white;
+  font-weight: bolder;
+  font-size: 50px;
+  text-shadow: 0 0 3px #000000, 0 0 5px #000000;
+}
+
+.homeLink {
+  position: absolute;
+  bottom: 34%;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: .8rem 2rem;
+  border: 1px solid var(--white);
+  border-radius: 5px;
+  font-weight: 700;
+  font-size: 20px;
+  transition: all .2s ease-in-out;
+}
+
+.homeLink:hover {
+  cursor: pointer;
+  background-color: white;
+  color: var(--color1);
+}
+
+
+/* <div class="bg-5">
+      <h1 class="animated-shadow">SOME TEXT</h1>
+</div>
+.bg-5{
+  background: linear-gradient(135deg, rgb(227, 227, 227) 0%, rgb(93, 104, 116) 100%);
+}
+
+.animated-shadow {
+ color: #ffffff;
+ font: normal 140px Varela Round, sans-serif;
+ height: 140px;
+ left: 0;
+ letter-spacing: 5px;
+ text-align: center;
+ text-transform: uppercase;
+ width: 100%;
+ animation: move linear 2000ms infinite;
+ z-index: 2
+}
+/*Animación para rotar las sombras*/
+/* @keyframes move {
+ 0% {
+   text-shadow:
+     4px -4px 0 #da0641,
+     3px -3px 0 #da0641,
+     2px -2px 0 #da0641,
+     1px -1px 0 #da0641,
+     -4px 4px 0 #13f1fc,
+     -3px 3px 0 #13f1fc,
+     -2px 2px 0 #13f1fc,
+     -1px 1px 0 #13f1fc
+   ;
+ }
+ 25% {
+   text-shadow:
+     -4px -4px 0 #13f1fc,
+     -3px -3px 0 #13f1fc,
+     -2px -2px 0 #13f1fc,
+     -1px -1px 0 #13f1fc,
+     4px 4px 0 #da0641,
+     3px 3px 0 #da0641,
+     2px 2px 0 #da0641,
+     1px 1px 0 #da0641
+   ;
+ }
+ 50% {
+   text-shadow:
+     -4px 4px 0 #da0641,
+     -3px 3px 0 #da0641,
+     -2px 2px 0 #da0641,
+     -1px 1px 0 #da0641,
+     4px -4px 0 #13f1fc,
+     3px -3px 0 #13f1fc,
+     2px -2px 0 #13f1fc,
+     1px -1px 0 #13f1fc
+   ;
+ }
+ 75% {
+   text-shadow:
+     4px 4px 0 #13f1fc,
+     3px 3px 0 #13f1fc,
+     2px 2px 0 #13f1fc,
+     1px 1px 0 #13f1fc,
+     -4px -4px 0 #da0641,
+     -3px -3px 0 #da0641,
+     -2px -2px 0 #da0641,
+     -1px -1px 0 #da0641
+   ;
+ }
+ 100% {
+   text-shadow:
+     4px -4px 0 #da0641,
+     3px -3px 0 #da0641,
+     2px -2px 0 #da0641,
+     1px -1px 0 #da0641,
+     -4px 4px 0 #13f1fc,
+     -3px 3px 0 #13f1fc,
+     -2px 2px 0 #13f1fc,
+     -1px 1px 0 #13f1fc
+   ;
+ }
+}  */
