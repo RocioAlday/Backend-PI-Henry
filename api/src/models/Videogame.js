@@ -30,10 +30,10 @@ module.exports = (sequelize) => {
       type: DataTypes.DECIMAL(3, 2),   
       allowNull: true,
     },
-    platforms: {
-      type: DataTypes.ARRAY(DataTypes.STRING),
-      allowNull: false,
-    },
+    // platforms: {
+    //   type: DataTypes.ARRAY(DataTypes.STRING),
+    //   allowNull: false,
+    // },
     createdInDb: {
       type: DataTypes.BOOLEAN,
       allowNull: false,

@@ -1,5 +1,5 @@
 const axios= require('axios');
-const { Videogame, Genre }= require('../db');
+const { Videogame, Genre, Platform }= require('../db');
 const { API_KEY } = process.env;
 
 const getApiVideogames= async()=> {
@@ -26,13 +26,18 @@ const getApiVideogames= async()=> {
 const getDbVideogames= async()=> {
     try {
         const videogames= await Videogame.findAll({
-            attributes: [
-                'id',
-                'name',
-                'image',
-                'createdInDb'
-            ], 
-            include: Genre
+            include: [
+                {
+                    model: Platform,
+                    attributes: ['id', 'name'], 
+                    through: { attributes: [] },
+                },
+                {
+                    model: Genre,
+                    attributes: ['id', 'name'], 
+                    through: { attributes: [] },
+                }
+            ],
         });
 
         return videogames.map(v => ({
@@ -40,6 +45,7 @@ const getDbVideogames= async()=> {
             name: v.name,
             image: v.image,
             genres: v.genres.map(g => g.name), 
+            platforms: v.platforms.map(p=> p.name),
             createdInDb: v.createdInDb
         }));
     } catch (err){
@@ -83,9 +89,21 @@ const getApiGenres= async()=> {
     }))
 }
 
+const getApiPlatforms= async()=> {
+    const apiUrl= `https://api.rawg.io/api/platforms?key=${API_KEY}`;
+    const  apiInfo = await axios(apiUrl, { headers: { "Accept-Encoding": "gzip,deflate,compress" },});
+    const result= await apiInfo.data.results;
+    
+    return result.map(p=> ({
+        id: p.id,
+        name: p.name
+    }))
+}
+
 
 module.exports = {
     getApiDbVideogames,
     getApiVideogamesById,
-    getApiGenres
+    getApiGenres,
+    getApiPlatforms
 }
