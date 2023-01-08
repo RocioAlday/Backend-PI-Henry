@@ -11,7 +11,6 @@ export default function Home() {
     const dispatch= useDispatch();
     const allVideogames= useSelector ((state)=> state.videogamesCopy); 
     // const genres = useSelector((state) => state.genres);
-    
 
     useEffect (()=> {
         dispatch(getVideogames());
@@ -21,7 +20,7 @@ export default function Home() {
     }, [dispatch])
 
 
-    function handleClick(e) {
+    function handleClickLoad(e) {
         e.preventDefault();
         dispatch(getVideogames());
     }
@@ -36,7 +35,7 @@ return (
     <div>
         <Link to= '/videogame'>Create Videogame</Link>
         <br></br>
-        <button onClick= {e=> {handleClick(e)}}>
+        <button onClick= {e=> {handleClickLoad(e)}}>
             Load all videogames
         </button>
     

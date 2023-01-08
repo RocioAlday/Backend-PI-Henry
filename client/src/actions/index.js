@@ -117,3 +117,15 @@ export function clearFilter(){
         type: 'CLEAR_FILTER'
     };
 };
+
+export function clearDetail(){
+    return {
+        type: 'CLEAR_DETAIL'
+    };
+};
+
+export function clearSearch(){
+    return {
+        type: 'CLEAR_SEARCH'
+    };
+};

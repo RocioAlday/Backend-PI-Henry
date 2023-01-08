@@ -15,6 +15,7 @@ const getApiVideogames= async()=> {
             id: v.id,
             genres: v.genres.map(g => g.name),   
             image: v.background_image,
+            rating: v.rating,
             }));
 
         result= [...result].concat(apiVideogames); 
@@ -46,7 +47,8 @@ const getDbVideogames= async()=> {
             image: v.image,
             genres: v.genres.map(g => g.name), 
             platforms: v.platforms.map(p=> p.name),
-            createdInDb: v.createdInDb
+            createdInDb: v.createdInDb,
+            rating: v.rating
         }));
     } catch (err){
         console.log(err);

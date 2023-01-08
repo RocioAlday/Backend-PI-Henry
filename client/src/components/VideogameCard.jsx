@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 export function VideogameCard({name, image, id, genres, rating}) {
     return (
         <div className= "card-container">
-            <NavLink to= {`/detail/${id}`}>
+            <NavLink to= {`/videogames/${id}`}>
                 <div className= "card">
                     <img src= {image} alt= 'img' className= "card-img" width={800} />
                     <div className='card-details'>
