@@ -38,6 +38,7 @@ function rootReducer(state= inicialState, action) {
             }
         
         case 'GET_VG_BY_ID':
+            console.log(action.payload);
             return {
                 ...state,
                 videogameDetails: action.payload

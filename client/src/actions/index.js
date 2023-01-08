@@ -56,6 +56,14 @@ export function getVgByName(name){
     }
 }
 
+// export function getVgById (id) {
+//     return function (dispatch) {
+//         return fetch (`http://localhost:3001/videogames/${id}`)
+//         .then (response => response.json())
+//         .then (gameId => dispatch({type: 'GAME_BY_ID', payload: gameId}))
+//         .catch (error => dispatch({ type: 'GAME_BY_ID', payload: error.message='Error' }));
+//     };
+// };
 export function getVgById(id){
     return async function(dispatch){
         try {
