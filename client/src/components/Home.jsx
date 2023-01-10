@@ -2,15 +2,14 @@ import { useEffect } from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import { getVideogames } from '../actions';
 import {Link} from 'react-router-dom';
-// import { getGenres } from '../actions';
-// import { filterByGenre } from '../actions';
 import Paginado from './Paginado';
 import Filters from './Filter';
+import Searchbar from './Searchbar';
+import ButtonCreateVg from './ButtonCreateVg';
 
 export default function Home() {
     const dispatch= useDispatch();
     const allVideogames= useSelector ((state)=> state.videogamesCopy); 
-    // const genres = useSelector((state) => state.genres);
 
     useEffect (()=> {
         dispatch(getVideogames());
@@ -52,28 +51,12 @@ return (
              />)}
     </div> */}
     <Filters />
+    <ButtonCreateVg />
+    <Searchbar />
     <Paginado videogames= {allVideogames} />
+   
     </div>
 )    
 
 }
 
-// PRIMERA FORMA QUE HICE PARA EL FILTRO DE GENEROS, NO ME FUNCIONÓ - VER
-{/* <div>
-<select>
-    <option value= 'asc'>Ascending</option>   *si o si necesito ponerle el value para poder después hacer la lógica! 
-    <option value= 'desc'>Descending</option>
-</select>
-</div>
-<div >
-<select onChange={e => handleFilterGenre(e)} defaultValue="default">
-    <option className='filters-container' disabled value="default">
-        Filter by Genres...
-    </option>
-    <option value="all">All Videogames</option>
-    {
-    genres.map((genre) => (
-    <option key={genre.id} value={genre.name} >{genre.name}</option>
-    ))}
-</select>
-</div> */}

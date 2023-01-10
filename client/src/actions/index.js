@@ -56,14 +56,6 @@ export function getVgByName(name){
     }
 }
 
-// export function getVgById (id) {
-//     return function (dispatch) {
-//         return fetch (`http://localhost:3001/videogames/${id}`)
-//         .then (response => response.json())
-//         .then (gameId => dispatch({type: 'GAME_BY_ID', payload: gameId}))
-//         .catch (error => dispatch({ type: 'GAME_BY_ID', payload: error.message='Error' }));
-//     };
-// };
 export function getVgById(id){
     return async function(dispatch){
         try {
@@ -79,17 +71,27 @@ export function getVgById(id){
 }
 
 export function createVideogame(payload){
-    return async function(dispatch){
-        try {
-            var json= await axios.post('http://localhost:3001/videogames');
-            return dispatch({
-                type: 'POST_VIDEOGAME',
-                payload: json.data
-            })
-        } catch(err){
-            alert('Your videogame could not be created', err)
-        }
-    }
+    // return async function(dispatch){
+    //     try {
+    //         var json= await axios.post('http://localhost:3001/videogames');
+    //         return dispatch({
+    //             type: 'POST_VIDEOGAME',
+    //             payload: json.data
+    //         })
+    //     } catch(err){
+    //         alert('Your videogame could not be created', err)
+    //     }
+    // }
+    return function (dispatch) {
+        return fetch ('http://localhost:3001/videogames', {
+            method: 'POST',
+            body: JSON.stringify(payload),
+            headers: {'Content-type': 'application/json; charset=UTF-8'}
+        })
+        .then (response => response.json())
+        .then (newGame => dispatch({type: 'POST_VIDEOGAME', payload: newGame}))
+        .catch (error => alert ('Your videogame could not be created', error.message));
+    };
 }
 
 export function filterByGenre(payload) {
