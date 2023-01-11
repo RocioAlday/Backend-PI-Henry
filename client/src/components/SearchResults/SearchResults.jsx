@@ -14,21 +14,17 @@ export default function SearchResults() {
 	const dispatch = useDispatch();
 	const videogames = useSelector((state) => state.searchVideogame);
 	const searchedVideogames = useSelector((state) => state.searchVideogameCopy);
-    const [currentPage, setCurrentPage] = useState(1);
    
 	useEffect(() => {
         dispatch(clearFilter());
-        setCurrentPage(1)
         dispatch(getVgByName(name));
         
         return () => { dispatch(clearSearch()) }
 	}, [dispatch, name]);
 
-
     if (!searchedVideogames.length){
       return <Loader />
     }
-
 
     return (
         <div>

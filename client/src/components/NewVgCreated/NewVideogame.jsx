@@ -34,7 +34,9 @@ export default function NewVideogame() {
         input.name && input.description && input.dateOfRelease && input.platforms.length && input.genres.length ? 
         setButton(false) :
         setButton(true)
-    },[input])
+    },[input]);
+
+    console.log(button);
 
     const handleChange = (e) => {
         setInput({
