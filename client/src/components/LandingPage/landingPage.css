@@ -33,7 +33,7 @@
   }
 
 .containerLanding {
- background: url('../images/arcane.jpg');
+ background: url('../../images/arcane.jpg');
   display: flex;
   width:100vw;
   justify-content: center;

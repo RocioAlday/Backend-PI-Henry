@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
-import { VideogameCard } from "./VideogameCard";
+import { VideogameCard } from "../Cards/VideogameCard";
+import "./pagination.css"
 
 export const renderVgPage = (videogame) => {
 
@@ -33,8 +34,8 @@ const handleClick= (e)=> {
 
 return (
     <>
-        <div> {renderVgPage(currentVideogames)}</div>
-        <div>
+        <div className="card-render"> {renderVgPage(currentVideogames)}</div>
+        <div className="container-buttons">
             <ul>
                 {pages.map((number) => {
                     return (

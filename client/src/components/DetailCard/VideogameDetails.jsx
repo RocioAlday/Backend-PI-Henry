@@ -1,14 +1,15 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { getVgById, clearDetail } from "../actions";
+import { getVgById, clearDetail} from "../../actions/index";
+import './videogameDetails.css';
 
 
 export default function VideogameDetails (props) {
 
     const dispatch = useDispatch();
     const videogame = useSelector((state) => state.videogameDetails)
-    const errors = ['Error', 'SequelizeDatabaseError'];
+
     console.log(props.match.params.id);
 
     useEffect(() => {
@@ -16,13 +17,12 @@ export default function VideogameDetails (props) {
         return () => dispatch(clearDetail());
     },[dispatch, props.match.params.id]);
     
-    if (errors.includes(videogame)) return alert('Error 404 has ocurred!');
 
     return (
         <>
         {videogame?
         <div className="container-details">
-            <h1>{videogame.name}</h1>
+            <h1 id="detailName">{videogame.name}</h1>
 
             <div className="details" >
                 <div className="basic-details">
@@ -49,7 +49,7 @@ export default function VideogameDetails (props) {
                     
                    
                 </div>
-                <div className='details-text'>
+                <div className='container-description'>
                     <h3>DESCRIPTION
                         <br/>
                         <br/>

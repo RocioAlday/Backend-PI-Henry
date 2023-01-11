@@ -1,10 +1,10 @@
 import './App.css';
 import {BrowserRouter, Route, Switch} from 'react-router-dom' ;
-import LandingPage from './components/landingPage';
-import Home from './components/Home';
-import VideogameDetails from './components/VideogameDetails';
-import SearchResults from './components/SearchResults';
-import NewVideogame from './components/NewVideogame';
+import LandingPage from './components/LandingPage/landingPage';
+import Home from './components/Home/Home';
+import VideogameDetails from './components/DetailCard/VideogameDetails';
+import SearchResults from './components/SearchResults/SearchResults';
+import NewVideogame from './components/NewVgCreated/NewVideogame';
 
 function App() {
   return (

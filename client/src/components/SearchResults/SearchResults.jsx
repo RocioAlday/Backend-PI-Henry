@@ -1,10 +1,12 @@
 import { React, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { getVgByName, clearSearch, clearFilter } from "../actions";
-import Pagination from "./Paginado";
-import Searchbar from "./Searchbar";
-import Filters from "./Filter";
+import { getVgByName, clearSearch, clearFilter } from "../../actions";
+import Pagination from "../Pagination/Pagination";
+import Searchbar from "../Searchbar/Searchbar";
+import Filters from "../Filters/Filter";
+import './searchResults.css';
+import Loader from "../Loader/Loader";
 
 
 export default function SearchResults() {
@@ -13,20 +15,21 @@ export default function SearchResults() {
 	const videogames = useSelector((state) => state.searchVideogame);
 	const searchedVideogames = useSelector((state) => state.searchVideogameCopy);
     const [currentPage, setCurrentPage] = useState(1);
-    const errors = ['Error', 'SequelizeDatabaseError'];
-
-
+   
 	useEffect(() => {
-        dispatch(clearFilter())
+        dispatch(clearFilter());
         setCurrentPage(1)
-		dispatch(getVgByName(name));
+        dispatch(getVgByName(name));
+        
         return () => { dispatch(clearSearch()) }
 	}, [dispatch, name]);
 
 
-    if (errors.includes(searchedVideogames)){
-        return alert('404 ERROR HAS OCURRED')
+    if (!searchedVideogames.length){
+      return <Loader />
     }
+
+
     return (
         <div>
             <div className='container-home' >

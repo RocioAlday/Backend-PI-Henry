@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 // import BackButton from '../Button/BackButton.jsx';
 // import HomeButton from '../Button/HomeButton.jsx';
-import { getGenres, getVideogames, getPlatforms, createVideogame } from '../actions/index.js';
-import { validation } from './validation.js';
-
+import { getGenres, getVideogames, getPlatforms, createVideogame } from '../../actions/index.js';
+import { validation } from '../validation';
+import './newVideogame.css';
 
 export default function NewVideogame() {
 
@@ -31,11 +31,7 @@ export default function NewVideogame() {
 
 
     useEffect(() => {
-        input.name &&
-        input.description &&
-        input.dateOfRelease &&
-        input.platforms.length &&
-        input.genres.length ? 
+        input.name && input.description && input.dateOfRelease && input.platforms.length && input.genres.length ? 
         setButton(false) :
         setButton(true)
     },[input])
@@ -110,39 +106,32 @@ export default function NewVideogame() {
     };
 
     return (
-		<div>
+		<div className='background-form'>
             <br />
             <h1 className='create-title'> Create Your Own Videogame</h1>
             <br />
             
-            <div className='home-back-buttons'>
-                {/* <HomeButton/>
-                <BackButton/>
-                <br/>
-                <br/>
-                <br/>
-                <br/> */}
-                <button className='create-button' disabled={button} onClick={(e) => handleSubmit(e)} type='submit'> CREATE VIDEOGAME</button>
-            </div>
-
+            <button className='create-button' disabled={button} onClick={(e) => handleSubmit(e)} type='submit'> CREATE VIDEOGAME</button>
+            <br/>
+            <br/>
            <form className='form-container' onSubmit={(e) => handleSubmit(e)}>
                 <div>
-                    <label>Name </label> <br/>
-                    <input type='text' placeholder='Enter Videogame Name' name='name' value={input.name} onChange={handleChange}></input>
+                    <label className='label'>Name </label> <br/>
+                    <input type='text' placeholder='Enter Videogame Name' name='name' value={input.name} onChange={handleChange}></input> 
                     {error.name && (<p className='error'><small>{error.name}</small></p>)}
-                    <br/>
+                    <br/><br/>
 
-                    <label>Date Of Release </label><br/> 
+                    <label className='label'>Date Of Release </label><br/>
                     <input name='dateOfRelease' value={input.dateOfRelease} type='date' onChange={handleChange}></input>
                     {error.dateOfRelease && (<p className='error'><small>{error.dateOfRelease}</small></p>)}
-                    <br/>
+                    <br/><br/>
 
-                    <label>Image </label><br/>
+                    <label className='label'>Image </label><br/>
                     <input name='image' placeholder='Insert the Image URL of your Videogame' value={input.image} onChange={handleChange}></input>
                     {error.image && (<p className='error'><small>{error.image}</small></p>)}
-                    <br/>
+                    <br/><br/>
 
-                    <label>Platforms </label><br/>
+                    <label className='label'>Platforms </label><br/>
                     <select className='filters-form' name='platforms' defaultValue='Choose 1 at least' onChange={handlePlatforms}>
                         <option disabled value='Choose 1 at least'>Choose at least one Platform</option>
                         {
@@ -168,9 +157,9 @@ export default function NewVideogame() {
                         }  
                     </select>
                     {error.platforms && (<p className='error'><small>{error.platforms}</small></p>)}
-                    <br/>
+                    <br/><br/>
 
-                    <label>Genres </label><br/>
+                    <label className='label'>Genres </label><br/>
                     <select className='filters-form' name='genres' defaultValue='Choose 1 at least' id='0' onChange={handleGenres}>
                         <option disabled value='At least one'>Choose at least one Genre</option>
                         {
@@ -196,12 +185,12 @@ export default function NewVideogame() {
                         }
                     </select>
                     {error.genres && (<p className='error'><small>{error.genres}</small></p>)}
-                    <br/>
+                    <br/><br/>
 
-                    <label>Description</label> <br/>
+                    <label className='label'>Description</label> <br/>
                     <textarea name='description' placeholder='Write your Videogame description...' value={input.description} type='text' rows='6' cols='59' onChange={handleChange}></textarea>
                     {error.description && (<p className='error'><small>{error.description}</small></p>)}
-                    <br/>
+                    <br/><br/>
 
                 </div>
             </form>

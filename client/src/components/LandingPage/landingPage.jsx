@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import '../styles/landingPage.css'
+import './landingPage.css'
 
 export default function LandingPage(){
     return (
@@ -9,7 +9,7 @@ export default function LandingPage(){
               Welcome to Videogames World!
             </h1>
             {/* <div class= "loader"></div> */}
-            <Link to= "/home" className='homeLink'> Get into ! </Link>
+            <Link to= "/home" className='homeLink'> Get Into ! </Link>
         </div>
     )
 }

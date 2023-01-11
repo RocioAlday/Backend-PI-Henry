@@ -1,0 +1,41 @@
+.card-container {
+    background-color: aliceblue;
+    overflow: hidden;
+    box-shadow: 0 2px 20px rgb(58, 129, 155);
+    border-radius: 1.2rem;
+    cursor: pointer;
+    transition: transform 500ms ease-in ;
+    width: 330px;
+    height: 380px;
+}
+
+.card-img {
+    height: 13rem;
+    width: 100%;
+    object-fit: cover;
+}
+
+.card-title {
+    padding: 0.8rem;
+    text-align: center;
+    margin-top: 0rem;
+    color: rgb(0, 0, 0);
+    font-weight: bolder;
+    font-size: 1.5rem;
+   
+}
+
+.card-genres {
+    margin-top: -0.9rem;
+    
+    color: rgb(4, 4, 4);
+    font-weight: bolder;
+    font-size: 1rem;
+}
+
+.card-rating {
+    padding:-0.3rem; 
+    color: rgb(4, 4, 4);
+    font-weight: bolder;
+    font-size: 1em;
+}   

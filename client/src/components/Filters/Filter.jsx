@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getGenres, filterByGenre, filterByOrigin, OrderByName, OrderByRating} from '../actions';
-import ClearFilters from './ClearFilters';
+import { getGenres, filterByGenre, filterByOrigin, OrderByName, OrderByRating} from '../../actions';
+import ClearFilters from '../ClearFilters/ClearFilters';
+import './filter.css';
 
 export default function Filters () {
 
@@ -43,7 +44,7 @@ export default function Filters () {
     };
 
     return (
-        <div>
+        <div className='general-container'>
             <ClearFilters />
 			<div>
 				<select className='filters-container' name="filters" onChange={e => handleOrderByName(e)} defaultValue="default">

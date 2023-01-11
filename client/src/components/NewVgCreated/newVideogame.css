@@ -1,0 +1,60 @@
+
+.background-form{
+    background-image: url('../../images/backgroundCreation.jpg');
+    background-size: cover;
+ 
+}
+.create-title{
+    color: aliceblue;
+}
+.create-button{
+    width: 8rem;
+    height: 4rem;
+    border-radius: 0.5rem;
+    border: none;
+    background-color: whitesmoke;
+    font-size: 0.9rem;
+    font-weight: 700;
+    transition: 0.3s;
+    filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.7));
+}
+
+
+.error{
+
+    color: rgb(255, 1, 1);
+    filter: drop-shadow(0 2px 9px rgba(255, 255, 255, 0.7));
+    font-style: oblique;
+    font-weight: bolder;
+    margin: 0;
+    margin-bottom: -1rem;
+}
+
+.filters-form{
+    width: 11rem;
+    height: 1.7rem;
+    border-radius: 0.5rem;
+    border: none;
+    background-color: whitesmoke;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: 0.3s;
+    
+    filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.7));
+    
+    margin-top: 0.2rem;
+    margin-right: 0.5rem;
+}
+
+.filters-form:hover {
+    background-color: rgb(13, 110, 200);
+    color: white;
+    transform: translateY(-1px);
+} 
+
+.label{
+    font-size:large;
+    color: azure;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    
+}

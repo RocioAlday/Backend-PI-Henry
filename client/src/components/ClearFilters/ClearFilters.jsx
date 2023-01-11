@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch } from 'react-redux';
-import { clearFilter } from "../actions";
+import { clearFilter } from "../../actions";
+import './clearfilters.css';
 
 export default function ClearFilters() {
     const dispatch = useDispatch();
