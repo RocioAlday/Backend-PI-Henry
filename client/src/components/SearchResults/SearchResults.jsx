@@ -7,6 +7,7 @@ import Searchbar from "../Searchbar/Searchbar";
 import Filters from "../Filters/Filter";
 import './searchResults.css';
 import Loader from "../Loader/Loader";
+import ErrorPage from "../ErrorPage/ErrorPage";
 
 
 export default function SearchResults() {
@@ -14,18 +15,23 @@ export default function SearchResults() {
 	const dispatch = useDispatch();
 	const videogames = useSelector((state) => state.searchVideogame);
 	const searchedVideogames = useSelector((state) => state.searchVideogameCopy);
-   
+    const errorMessage= useSelector((state)=> state.errorMessage);
+   console.log(errorMessage);
 	useEffect(() => {
         dispatch(clearFilter());
+        
         dispatch(getVgByName(name));
         
         return () => { dispatch(clearSearch()) }
 	}, [dispatch, name]);
 
-    if (!searchedVideogames.length){
+    if (!searchedVideogames.length && !errorMessage.message){
       return <Loader />
+    } 
+    if (errorMessage.message=== 'Videogame not found'){
+    return <ErrorPage />;
     }
-
+  
     return (
         <div>
             <div className='container-home' >

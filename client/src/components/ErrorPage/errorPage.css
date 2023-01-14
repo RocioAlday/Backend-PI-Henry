@@ -1,0 +1,29 @@
+.errorPage-container{
+    background: url('../../images/ErrorImage.png') no-repeat center;
+    display:flex;
+    width:auto;
+    height:100vh; 
+    background-size: cover;
+    flex-direction: row;
+}
+
+.button{
+    width: 10rem;
+    height: 3rem;
+    border-radius: 0.5rem;
+    border: none;
+    background-color: whitesmoke;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: 0.3s;
+    outline: none;
+    filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.7));
+    margin-left: 42rem;
+    margin-top: 28rem;
+}
+
+.button:hover {
+    background-color: rgb(13, 110, 200);
+    color: white;
+    transform: translateY(-1px);
+}

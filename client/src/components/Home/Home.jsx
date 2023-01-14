@@ -37,13 +37,14 @@ return loading? <Loader /> :
         <Searchbar />
     </div>
  
-    <div className='PRUEBA'>
-    <button className='load-button' onClick= {e=> {handleClickLoad(e)}}>
-        Load All Videogames
-    </button>
-    <ButtonCreateVg />
-       
-    <Filters />
+    <div className='prueba'>
+        <button className='load-button' onClick= {e=> {handleClickLoad(e)}}>
+            Load All Videogames
+        </button>
+        <ButtonCreateVg />
+        <div className='filters-column'> 
+        <Filters />
+        </div> 
     </div>
     <Paginado videogames= {allVideogames} />
     </div>

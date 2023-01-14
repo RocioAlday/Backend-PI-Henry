@@ -6,6 +6,7 @@ const inicialState= {
     videogameDetails : [],
     genres: [],
     platforms: [],
+    errorMessage: {}
 }
 
 function rootReducer(state= inicialState, action) {
@@ -219,6 +220,14 @@ function rootReducer(state= inicialState, action) {
                     searchVideogame: [],
                     searchVideogameCopy: [],
                 }
+            
+            case 'ERROR_MESSAGE':
+                console.log(action.payload);
+            return {
+                ...state,
+                errorMessage: action.payload,
+            };
+
         default:
             return state;
     }

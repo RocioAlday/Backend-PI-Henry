@@ -51,7 +51,11 @@ export function getVgByName(name){
                 payload: json.data
             })
         } catch(err){
-            console.log(err)
+            console.log(err);
+            return dispatch({
+                type: 'ERROR_MESSAGE',
+                payload: err.response.data,
+            })
         }
     }
 }

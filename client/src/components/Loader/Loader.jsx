@@ -5,7 +5,7 @@ import './loader.css';
 export default function Loader() {
     return (
         <div className='loader-container'>
-            <img src={loader} alt=' '/>
+            <img src={loader} alt='loader image'/>
         </div>
     );
 };

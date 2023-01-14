@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-// import BackButton from '../Button/BackButton.jsx';
-// import HomeButton from '../Button/HomeButton.jsx';
 import { getGenres, getVideogames, getPlatforms, createVideogame } from '../../actions/index.js';
 import { validation } from '../validation';
 import './newVideogame.css';
@@ -28,7 +26,6 @@ export default function NewVideogame() {
     }, [dispatch])
 
     const [error, setError] = useState({});
-
 
     useEffect(() => {
         input.name && input.description && input.dateOfRelease && input.platforms.length && input.genres.length ? 

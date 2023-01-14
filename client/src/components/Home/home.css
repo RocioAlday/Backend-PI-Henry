@@ -20,6 +20,8 @@
     filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.7));
     margin: 1em;
     margin-top: 4rem;
+    margin-left: 36rem;
+    margin-right: 5rem;
 }
 
 .load-button:hover {
@@ -28,7 +30,11 @@
     transform: translateY(-1px);
 }
 
-.PRUEBA{
+.prueba{
     display:inline-flex;
    
+}
+
+.filters-column{
+    margin-left: 25rem;
 }

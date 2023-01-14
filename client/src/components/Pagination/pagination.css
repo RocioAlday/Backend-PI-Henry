@@ -22,7 +22,6 @@
     font-weight: 500;
     transition: 0.3s;
     filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.7));
-    margin-bottom: 2em;
     margin-top: 2em;
 }
 .pagination-buttons{
@@ -43,4 +42,8 @@
     background-color:  rgb(180, 218, 251);
     transform: translateY(-1.2px);
     cursor:pointer
+}
+.pagination-buttons:focus{
+    background-color:rgb(48, 108, 160);
+    color: white;
 }
