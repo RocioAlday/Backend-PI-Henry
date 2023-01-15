@@ -11,7 +11,6 @@ import Loader from '../Loader/Loader';
 export default function Home() {
     const dispatch= useDispatch();
     const allVideogames= useSelector ((state)=> state.videogamesCopy); 
-    const totalVg= useSelector ((state)=> state.videogames);
     let [loading, setLoading] = useState(true);
 
     useEffect (()=> {
