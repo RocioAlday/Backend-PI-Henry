@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getVgById, clearDetail} from "../../actions/index";
 import './videogameDetails.css';
+import { Link } from "react-router-dom";
+import Loader from "../Loader/Loader";
 
 
 export default function VideogameDetails (props) {
@@ -17,17 +19,20 @@ export default function VideogameDetails (props) {
         return () => dispatch(clearDetail());
     },[dispatch, props.match.params.id]);
     
-
+    if (videogame.length<1){
+        return <Loader />
+    } else {
+    
     return (
         <>
-        {videogame?
+     
         <div className="container-details">
             <h1 id="detailName">{videogame.name}</h1>
 
-            <div className="details" >
+     
                 <div className="basic-details">
                     <img src={videogame.image} />
-                   
+                   <div className="detail-data">
                     <h3>ID: {props.match.params.id}</h3>
                     
                     <h3>Released: <br/> {videogame.dateOfRelease}</h3>
@@ -53,19 +58,25 @@ export default function VideogameDetails (props) {
                     <h3>DESCRIPTION
                         <br/>
                         <br/>
-                        {videogame.description} </h3>
+                        {videogame.description && videogame.description.replaceAll('<p>', '').replaceAll('</p>', '').replaceAll('<br />', "\n")}
+                    </h3>
                 </div>
-            </div>
+                </div>
+            
+          
+
+            <Link to= '/home'>
+            <button className="back-button">🡄 GO BACK</button>
+            </Link>
         </div>
-        : <div className="background" >
-        <div className="container" >
-            <h1 className="loading" >Cargando detalles</h1>
-        </div>
-        </div>
-        }
+       
+        
+        
         </>
     );
+    }
 };
+
 
 
 

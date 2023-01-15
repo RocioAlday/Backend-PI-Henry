@@ -154,11 +154,13 @@ function rootReducer(state= inicialState, action) {
             }
 
             if(origin === 'api'){
-                filterOrigin= state.videogamesCopy.filter(vg => !vg.createdInDb);
-                filterOriginSearch= state.searchVideogameCopy.filter(vg=> !vg.createdInDb)
-                } else{
-                    filterOrigin = state.videogamesCopy.filter(vg => vg.createdInDb);
-                    filterOriginSearch= state.searchVideogameCopy.filter(vg => vg.createdInDb)
+                filterOrigin= state.videogamesCopy.filter(vg => vg.createdInDb === undefined);
+                
+                filterOriginSearch= state.searchVideogameCopy.filter(vg=> vg.createdInDb === undefined)
+                } else if (origin === 'created'){
+                    filterOrigin = state.videogamesCopy.filter(vg => vg.createdInDb === true);
+                    
+                    filterOriginSearch= state.searchVideogameCopy.filter(vg => vg.createdInDb === true)
                 }
             
             return {
@@ -227,6 +229,12 @@ function rootReducer(state= inicialState, action) {
                 ...state,
                 errorMessage: action.payload,
             };
+
+            case 'CLEAR_ERR_MSG':
+                return {
+                    ...state,
+                    errorMessage: {}
+                }
 
         default:
             return state;

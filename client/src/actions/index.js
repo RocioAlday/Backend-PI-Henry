@@ -143,3 +143,9 @@ export function clearSearch(){
         type: 'CLEAR_SEARCH'
     };
 };
+
+export function clearErrorMessage(){
+    return {
+        type: 'CLEAR_ERR_MSG'
+    }
+}

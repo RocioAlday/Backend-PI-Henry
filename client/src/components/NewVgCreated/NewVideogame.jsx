@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getGenres, getVideogames, getPlatforms, createVideogame } from '../../actions/index.js';
 import { validation } from '../validation';
 import './newVideogame.css';
+import { Link } from 'react-router-dom';
 
 export default function NewVideogame() {
 
@@ -108,10 +109,9 @@ export default function NewVideogame() {
 		<div className='background-form'>
             <br />
             <h1 className='create-title'> Create Your Own Videogame</h1>
-            <br />
-            
-            <button className='create-button' disabled={button} onClick={(e) => handleSubmit(e)} type='submit'> CREATE VIDEOGAME</button>
-            <br/>
+            <Link to= '/home'>
+                <button className="back-button">🡄 GO BACK</button>
+            </Link>
             <br/>
            <form className='form-container' onSubmit={(e) => handleSubmit(e)}>
                 <div>
@@ -190,7 +190,8 @@ export default function NewVideogame() {
                     <textarea name='description' placeholder='Write your Videogame description...' value={input.description} type='text' rows='6' cols='59' onChange={handleChange}></textarea>
                     {error.description && (<p className='error'><small>{error.description}</small></p>)}
                     <br/><br/>
-
+                    <button className='create-button' disabled={button} onClick={(e) => handleSubmit(e)} type='submit'> CREATE VIDEOGAME</button>
+                    <br/><br/>
                 </div>
             </form>
         </div>
