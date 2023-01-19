@@ -64,7 +64,8 @@ const getApiDbVideogames= async()=> {
     }
 }
 
-const getApiVideogamesById= async(id)=> {
+const getAllVideogamesById= async(id)=> {
+    if(typeof(Number(id)) === 'number' && id.length<8) {
     const apiUrl= `https://api.rawg.io/api/games/${id}?key=${API_KEY}`;
     const  apiInfo = await axios(apiUrl, { headers: { "Accept-Encoding": "gzip,deflate,compress" },});
     const videogame= await apiInfo.data;
@@ -78,6 +79,36 @@ const getApiVideogamesById= async(id)=> {
         rating: videogame.rating,
         platforms: videogame.platforms.map(p=> p.platform.name)
     }
+} else {
+    if (typeof(id) === 'string' && id.length>7){
+        const videogameDb= await Videogame.findAll({ 
+            where: { id: id }, 
+            include: [
+                {
+                    model: Platform,
+                    attributes: ['name'], 
+                    through: { attributes: [] },
+                },
+                {
+                    model: Genre,
+                    attributes: ['name'], 
+                    through: { attributes: [] },
+                }
+            ],
+            
+        });
+ 
+        return {
+          name: videogameDb[0].dataValues.name,
+          image: videogameDb[0].dataValues.image,
+          genres: videogameDb[0].dataValues.genres.map(g=> g.name),
+          description: videogameDb[0].dataValues.description,
+          dateOfRelease: videogameDb[0].dataValues.dateOfRelease,
+          rating:videogameDb[0].dataValues.rating,
+          platforms: videogameDb[0].dataValues.platforms.map(p=> p.name),
+        }
+    } 
+}
 }
 
 const getApiGenres= async()=> {
@@ -105,7 +136,7 @@ const getApiPlatforms= async()=> {
 
 module.exports = {
     getApiDbVideogames,
-    getApiVideogamesById,
+    getAllVideogamesById,
     getApiGenres,
     getApiPlatforms
 }

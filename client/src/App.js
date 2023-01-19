@@ -5,6 +5,7 @@ import Home from './components/Home/Home';
 import VideogameDetails from './components/DetailCard/VideogameDetails';
 import SearchResults from './components/SearchResults/SearchResults';
 import NewVideogame from './components/NewVgCreated/NewVideogame';
+import ErrorPage from './components/ErrorPage/ErrorPage';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route exact path= '/videogames/createvideogame' component= {NewVideogame} />
         <Route exact path='/videogames/:id' component={VideogameDetails} />
         <Route exact path='/results/:name' component={SearchResults} />
+        <Route path="*" component={ErrorPage} />
        
       </Switch>
     </div>

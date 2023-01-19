@@ -11,6 +11,7 @@ export default function NewVideogame() {
     const platforms= useSelector((state)=>state.platforms);
     const genres = useSelector((state)=>state.genres);
     let [button, setButton] = useState({});
+    const [error, setError] = useState({});
 
     const [input, setInput] = useState({
         name: '',
@@ -26,7 +27,6 @@ export default function NewVideogame() {
         dispatch(getPlatforms());
     }, [dispatch])
 
-    const [error, setError] = useState({});
 
     useEffect(() => {
         input.name && input.description && input.dateOfRelease && input.platforms.length && input.genres.length ? 

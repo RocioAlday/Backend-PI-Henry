@@ -1,3 +1,7 @@
+import {GET_VIDEOGAMES, GET_GENRES, GET_PLATFORMS, GET_VG_BY_NAME, ERROR_MESSAGE, GET_VG_BY_ID, POST_VIDEOGAME,
+    FILTER_BY_GENRE, FILTER_BY_ORIGIN, ORDER_BY_NAME, ORDER_BY_RATING, CLEAR_FILTER, CLEAR_DETAIL, CLEAR_SEARCH,
+    CLEAR_ERR_MSG} from '../actions/actionsTypes';
+
 const inicialState= {
     videogames: [],   // guardo todos los vg q traigo desde mi back
     videogamesCopy: [],   //acá se van guardando los videojuegos que filtro/ordeno 
@@ -11,7 +15,7 @@ const inicialState= {
 
 function rootReducer(state= inicialState, action) {
     switch(action.type) {
-        case 'GET_VIDEOGAMES':
+        case GET_VIDEOGAMES:
             return {
                 ...state,
                 videogames: action.payload,
@@ -19,38 +23,38 @@ function rootReducer(state= inicialState, action) {
             };
            
         
-        case 'GET_GENRES':
+        case GET_GENRES:
             return {
                 ...state,
                 genres: action.payload
             }
         
-        case 'GET_PLATFORMS':
+        case GET_PLATFORMS:
             return {
                 ...state,
                 platforms: action.payload
             }
         
-        case 'GET_VG_BY_NAME':
+        case GET_VG_BY_NAME:
             return {
                 ...state,
                 searchVideogame: action.payload,
                 searchVideogameCopy: action.payload
             }
         
-        case 'GET_VG_BY_ID':
+        case GET_VG_BY_ID:
             console.log(action.payload);
             return {
                 ...state,
                 videogameDetails: action.payload
             }
             
-        case 'POST_VIDEOGAME':
+        case POST_VIDEOGAME:
             return {
                 ...state,
             }
 
-        case 'FILTER_BY_GENRE':
+        case FILTER_BY_GENRE:
             const genre= action.payload.toLowerCase();
             console.log(genre);
             let filterByGenre= [];
@@ -76,7 +80,7 @@ function rootReducer(state= inicialState, action) {
             }
 
 
-            case 'ORDER_BY_NAME':
+            case ORDER_BY_NAME:
             const order = action.payload;
             let orderName;
             let orderNameSearch;
@@ -140,7 +144,7 @@ function rootReducer(state= inicialState, action) {
                 videogamesCopy: orderName,
             }
 
-            case 'FILTER_BY_ORIGIN':
+            case FILTER_BY_ORIGIN:
             const origin = action.payload;
             let filterOrigin;
             let filterOriginSearch;
@@ -169,7 +173,7 @@ function rootReducer(state= inicialState, action) {
                 searchVideogameCopy: filterOriginSearch
                 };
 
-            case 'ORDER_BY_RATING':
+            case ORDER_BY_RATING:
                 const rating = action.payload;
                 let orderRating;
                 let orderRatingSearch;
@@ -204,33 +208,33 @@ function rootReducer(state= inicialState, action) {
                     videogamesCopy: orderRating,
                 };
 
-            case 'CLEAR_FILTER':
+            case CLEAR_FILTER:
                 return {
                     ...state,
                     videogamesCopy: state.videogames,
                     searchVideogameCopy: state.searchVideogame
                 }
-            case 'CLEAR_DETAIL':
+            case CLEAR_DETAIL:
                 return {
                     ...state,
                     videogameDetails: [],
                 }
         
-            case 'CLEAR_SEARCH':
+            case CLEAR_SEARCH:
                 return {
                     ...state,
                     searchVideogame: [],
                     searchVideogameCopy: [],
                 }
             
-            case 'ERROR_MESSAGE':
+            case ERROR_MESSAGE:
                 console.log(action.payload);
             return {
                 ...state,
                 errorMessage: action.payload,
             };
 
-            case 'CLEAR_ERR_MSG':
+            case CLEAR_ERR_MSG:
                 return {
                     ...state,
                     errorMessage: {}

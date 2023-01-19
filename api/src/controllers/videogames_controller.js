@@ -1,4 +1,4 @@
-const { getApiDbVideogames, getApiVideogamesById } = require("../utils");
+const { getApiDbVideogames, getAllVideogamesById } = require("../utils");
 const { Videogame, Genre, Platform } = require('../db');
 
 const getVideogames= async(req, res) =>{
@@ -16,7 +16,7 @@ const getVideogames= async(req, res) =>{
 const getVideogamesById= async(req, res)=> {
     const {id} = req.params;
     if(id){
-       const videogame= await getApiVideogamesById(id);
+       const videogame= await getAllVideogamesById(id);
        videogame ? res.status(200).json(videogame) : res.status(404).json({message: 'Videogame not found'});
     }
 }
