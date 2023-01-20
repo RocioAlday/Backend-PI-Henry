@@ -6,7 +6,7 @@ const getVideogames= async(req, res) =>{
     const videogames= await getApiDbVideogames();
     try {
         if(!name) return res.status(200).json(videogames);
-        const wantedVideogame= videogames.filter(v=> v.name.toLowerCase().includes(name.toLowerCase())); // Ver/AGREGAR-- el readmy pide mostrar solo las 15 primeras conincidencias
+        const wantedVideogame= videogames.filter(v=> v.name.toLowerCase().includes(name.toLowerCase())); 
         wantedVideogame.length ? res.status(200).json(wantedVideogame) : res.status(404).json({message: 'Videogame not found'});
     } catch(err){
         res.json({error: err.message})
@@ -41,7 +41,7 @@ const postVideogames= async(req, res)=> {
 
         res.status(200).json(videogameCreated)
     } catch (err) {
-        res.status(500).json({msg: 'FALLA ACÁ', err});
+        res.status(500).json({msg: 'PostVideogame Error', err});
     }
 }
 
