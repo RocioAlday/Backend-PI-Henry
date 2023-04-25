@@ -33,7 +33,7 @@ export default function Home() {
 
 return loading? <Loader /> :
  (
-    <div>
+    <div className='container'>
     <div className='home-container'>
         <Searchbar />
     </div>
