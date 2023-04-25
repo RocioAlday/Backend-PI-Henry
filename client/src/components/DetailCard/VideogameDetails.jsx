@@ -24,7 +24,7 @@ export default function VideogameDetails (props) {
     } else {
     
     return (
-        <>
+        <div className="container-page">
      
         <div className="container-details">
             <h1 id="detailName">{videogame.name}</h1>
@@ -33,33 +33,29 @@ export default function VideogameDetails (props) {
                 <div className="basic-details">
                     <img src={videogame.image} />
                    <div className="detail-data">
-                    <h3>ID: {props.match.params.id}</h3>
+                    <h3>ID:</h3> {props.match.params.id}
                     
-                    <h3>Released: <br/> {videogame.dateOfRelease}</h3>
+                    <h3>Released:</h3> {videogame.dateOfRelease}
                     
-                    <h3>Rating: <br/> {videogame.rating}</h3>
+                    <h3>Rating:</h3>  {videogame.rating}
 
-                    <h3> Genres:
+                    <h3> Genres:</h3>
                         {videogame.genres? videogame.genres.map((g) => (
                             <li >{g}</li>)) : <p>No está asociado a un genero</p>
                         }
-
-                    </h3>
                     
-                    <h3>Platforms: <br/>
+                    <h3>Platforms: </h3>
                         {videogame.platforms? videogame.platforms.map((p) => (
                             <span>{`${p} - `}</span>)) : <p>No está asociado a ninguna plataforma</p>
                         }
-                    </h3>
+                   
                     
                    
                 </div>
                 <div className='container-description'>
-                    <h3>DESCRIPTION
-                        <br/>
-                        <br/>
+                    <h3>DESCRIPTION</h3>
                         {videogame.description && videogame.description.replaceAll('<p>', '').replaceAll('</p>', '').replaceAll('<br />', "\n")}
-                    </h3>
+                    
                 </div>
                 </div>
             
@@ -72,7 +68,7 @@ export default function VideogameDetails (props) {
        
         
         
-        </>
+        </div>
     );
     }
 };

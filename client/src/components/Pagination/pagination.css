@@ -17,7 +17,7 @@
     align-items: center;
     padding: 1em;
     border: none;
-    background-color: rgba(53, 105, 156, 0.541);
+    background-color: rgba(94, 53, 156, 0.392);
     font-size: 0.9rem;
     font-weight: 500;
     transition: 0.3s;
@@ -39,11 +39,14 @@
     filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.7));
 }
 .pagination-buttons:hover{
-    background-color:  rgb(180, 218, 251);
+    background-color: rgba(94, 53, 156, 0.392);
+    opacity: 5;
+    color: white;
     transform: translateY(-1.2px);
     cursor:pointer
 }
 .pagination-buttons:focus{
-    background-color:rgb(48, 108, 160);
+    background-color: rgba(94, 53, 156, 0.392);
+    opacity: 5;
     color: white;
 }
