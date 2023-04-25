@@ -21,7 +21,7 @@
 }
 
 .filters-container:hover {
-    background-color:  rgb(125, 164, 201);
+    background-color: rgba(94, 53, 156, 0.766);
     color: white;
     transform: translateY(-1px);
 }
