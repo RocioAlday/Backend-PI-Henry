@@ -6,7 +6,7 @@ import {GET_VIDEOGAMES, GET_GENRES, GET_PLATFORMS, GET_VG_BY_NAME, ERROR_MESSAGE
 export function getVideogames(){
     return async function(dispatch){
         try{
-            var json= await axios.get('http://localhost:3001/videogames');
+            var json= await axios.get('https://pi-videogames-henry-production-8f33.up.railway.app/videogames');
             return dispatch({
                 type: GET_VIDEOGAMES,  
                 payload: json.data
@@ -20,7 +20,7 @@ export function getVideogames(){
 export function getGenres(){
     return async function(dispatch) {
         try{
-            var json= await axios.get('http://localhost:3001/genres');
+            var json= await axios.get('https://pi-videogames-henry-production-8f33.up.railway.app/genres');
             return dispatch({
                 type: GET_GENRES,
                 payload: json.data
@@ -34,7 +34,7 @@ export function getGenres(){
 export function getPlatforms(){
     return async function(dispatch) {
         try {
-            var json= await axios.get('http://localhost:3001/platforms');
+            var json= await axios.get('https://pi-videogames-henry-production-8f33.up.railway.app/platforms');
             return dispatch({
                 type: GET_PLATFORMS,
                 payload: json.data
@@ -48,7 +48,7 @@ export function getPlatforms(){
 export function getVgByName(name){
     return async function(dispatch) {
         try {
-            var json= await axios.get(`http://localhost:3001/videogames?name=${name}`);
+            var json= await axios.get(`https://pi-videogames-henry-production-8f33.up.railway.app/videogames?name=${name}`);
             return dispatch({
                 type: GET_VG_BY_NAME,
                 payload: json.data
@@ -66,7 +66,7 @@ export function getVgByName(name){
 export function getVgById(id){
     return async function(dispatch){
         try {
-            var json= await axios.get(`http://localhost:3001/videogames/${id}`);
+            var json= await axios.get(`https://pi-videogames-henry-production-8f33.up.railway.app/videogames/${id}`);
             return dispatch({
                 type: GET_VG_BY_ID,
                 payload: json.data
@@ -79,7 +79,7 @@ export function getVgById(id){
 
 export function createVideogame(payload){
     return function (dispatch) {
-        return fetch ('http://localhost:3001/videogames', {
+        return fetch ('https://pi-videogames-henry-production-8f33.up.railway.app/videogames', {
             method: 'POST',
             body: JSON.stringify(payload),
             headers: {'Content-type': 'application/json; charset=UTF-8'}
