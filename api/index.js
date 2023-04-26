@@ -17,7 +17,7 @@
 //     =====`-.____`.___ \_____/___.-`___.-'=====
 //                       `=---='
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-var port = process.env.PORT || 3001
+var { port } = process.env;
 const server = require('./src/app.js');
 const { conn } = require('./src/db.js');
 
