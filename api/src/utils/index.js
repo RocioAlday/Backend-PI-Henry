@@ -1,5 +1,6 @@
 const axios= require('axios');
 const { Videogame, Genre, Platform }= require('../db');
+require('dotenv').config();
 const { API_KEY } = process.env;
 
 const getApiVideogames= async()=> {
